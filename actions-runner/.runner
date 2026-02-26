@@ -1,0 +1,11 @@
+﻿{
+  "agentId": 2,
+  "agentName": "ARMAAN7876",
+  "poolId": 1,
+  "poolName": "Default",
+  "serverUrl": "https://pipelinesghubeus11.actions.githubusercontent.com/VbOxO0nblvrvXzXV6BBaUjPs7AsxcmAtimXsNUf79bBRuKvLYT/",
+  "gitHubUrl": "https://github.com/Armaan-khan786/iot_API_test",
+  "workFolder": "_work",
+  "useV2Flow": true,
+  "serverUrlV2": "https://broker.actions.githubusercontent.com/"
+}

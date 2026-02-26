@@ -1,140 +1,286 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 7.4.1 (Python 3.14.2 on win32)" generated="2026-02-24T12:05:31.648238" rpa="false" schemaversion="5">
+<robot generator="Robot 7.4.1 (Python 3.14.2 on win32)" generated="2026-02-25T12:17:40.443683" rpa="false" schemaversion="5">
 <suite id="s1" name="Test Device" source="C:\Users\a7577\Desktop\iot_cloud_test\test_device.robot">
-<test id="s1-t1" name="Compile Firmware" line="5">
-<kw name="Log To Console" owner="BuiltIn">
-<arg>===== COMPILING ESP32 FIRMWARE =====</arg>
+<kw name="Log To Console" owner="BuiltIn" type="SETUP">
+<arg>===== STARTING ESP32 CI TEST =====</arg>
 <doc>Logs the given message to the console.</doc>
-<status status="PASS" start="2026-02-24T12:05:31.702853" elapsed="0.001294"/>
+<status status="PASS" start="2026-02-25T12:17:40.492456" elapsed="0.000735"/>
 </kw>
+<test id="s1-t1" name="1. Compile Firmware" line="11">
 <kw name="Run Process" owner="Process">
-<msg time="2026-02-24T12:05:31.705112" level="INFO">Starting process:
-python -c "import iot_cloud_test; iot_cloud_test.main_compile()"</msg>
-<msg time="2026-02-24T12:05:31.720643" level="INFO">Waiting for process to complete.</msg>
-<msg time="2026-02-24T12:06:38.632046" level="INFO">Process completed.</msg>
-<msg time="2026-02-24T12:06:38.632448" level="INFO">${result} = &lt;result object with rc 0&gt;</msg>
-<var>${result}</var>
-<arg>python</arg>
+<msg time="2026-02-25T12:17:40.494335" level="INFO">Starting process:
+python -c "\"import iot_cloud_test; iot_cloud_test.main_compile()\""</msg>
+<msg time="2026-02-25T12:17:40.502831" level="INFO">Waiting for process to complete.</msg>
+<msg time="2026-02-25T12:17:40.547937" level="INFO">Process completed.</msg>
+<msg time="2026-02-25T12:17:40.548134" level="INFO">${r} = &lt;result object with rc 0&gt;</msg>
+<var>${r}</var>
+<arg>${PYTHON}</arg>
 <arg>-c</arg>
-<arg>import iot_cloud_test; iot_cloud_test.main_compile()</arg>
+<arg>"import iot_cloud_test; iot_cloud_test.main_compile()"</arg>
 <arg>shell=True</arg>
 <doc>Runs a process and waits for it to complete.</doc>
-<status status="PASS" start="2026-02-24T12:05:31.704806" elapsed="66.927685"/>
+<status status="PASS" start="2026-02-25T12:17:40.493926" elapsed="0.054261"/>
 </kw>
 <kw name="Should Be Equal As Integers" owner="BuiltIn">
-<msg time="2026-02-24T12:06:38.634892" level="INFO">Argument types are:
+<msg time="2026-02-25T12:17:40.549421" level="INFO">Argument types are:
 &lt;class 'int'&gt;
 &lt;class 'str'&gt;</msg>
-<arg>${result.rc}</arg>
+<arg>${r.rc}</arg>
 <arg>0</arg>
 <doc>Fails if objects are unequal after converting them to integers.</doc>
-<status status="PASS" start="2026-02-24T12:06:38.633157" elapsed="0.001958"/>
+<status status="PASS" start="2026-02-25T12:17:40.548670" elapsed="0.000822"/>
 </kw>
-<status status="PASS" start="2026-02-24T12:05:31.701788" elapsed="66.933766"/>
+<status status="PASS" start="2026-02-25T12:17:40.493368" elapsed="0.056589"/>
 </test>
-<test id="s1-t2" name="Flash ESP32" line="10">
-<kw name="Log To Console" owner="BuiltIn">
-<arg>===== FLASHING DEVICE =====</arg>
-<doc>Logs the given message to the console.</doc>
-<status status="PASS" start="2026-02-24T12:06:38.637039" elapsed="0.000480"/>
-</kw>
+<test id="s1-t2" name="2. Flash ESP32" line="15">
 <kw name="Run Process" owner="Process">
-<msg time="2026-02-24T12:06:38.638102" level="INFO">Starting process:
-python -c "import iot_cloud_test; iot_cloud_test.main_flash()"</msg>
-<msg time="2026-02-24T12:06:38.649795" level="INFO">Waiting for process to complete.</msg>
-<msg time="2026-02-24T12:06:57.033306" level="INFO">Process completed.</msg>
-<msg time="2026-02-24T12:06:57.033627" level="INFO">${result} = &lt;result object with rc 0&gt;</msg>
-<var>${result}</var>
-<arg>python</arg>
+<msg time="2026-02-25T12:17:40.551464" level="INFO">Starting process:
+python -c "\"import iot_cloud_test; iot_cloud_test.main_flash()\""</msg>
+<msg time="2026-02-25T12:17:40.559713" level="INFO">Waiting for process to complete.</msg>
+<msg time="2026-02-25T12:17:40.604405" level="INFO">Process completed.</msg>
+<msg time="2026-02-25T12:17:40.604566" level="INFO">${r} = &lt;result object with rc 0&gt;</msg>
+<var>${r}</var>
+<arg>${PYTHON}</arg>
 <arg>-c</arg>
-<arg>import iot_cloud_test; iot_cloud_test.main_flash()</arg>
+<arg>"import iot_cloud_test; iot_cloud_test.main_flash()"</arg>
 <arg>shell=True</arg>
 <doc>Runs a process and waits for it to complete.</doc>
-<status status="PASS" start="2026-02-24T12:06:38.637816" elapsed="18.395869"/>
+<status status="PASS" start="2026-02-25T12:17:40.551107" elapsed="0.053483"/>
 </kw>
 <kw name="Should Be Equal As Integers" owner="BuiltIn">
-<msg time="2026-02-24T12:06:57.036054" level="INFO">Argument types are:
+<msg time="2026-02-25T12:17:40.605874" level="INFO">Argument types are:
 &lt;class 'int'&gt;
 &lt;class 'str'&gt;</msg>
-<arg>${result.rc}</arg>
+<arg>${r.rc}</arg>
 <arg>0</arg>
 <doc>Fails if objects are unequal after converting them to integers.</doc>
-<status status="PASS" start="2026-02-24T12:06:57.034428" elapsed="0.001809"/>
+<status status="PASS" start="2026-02-25T12:17:40.605144" elapsed="0.000813"/>
 </kw>
-<status status="PASS" start="2026-02-24T12:06:38.636542" elapsed="18.400376"/>
+<status status="PASS" start="2026-02-25T12:17:40.550715" elapsed="0.055665"/>
 </test>
-<test id="s1-t3" name="Verify Device Boot" line="15">
-<kw name="Log To Console" owner="BuiltIn">
-<arg>===== VERIFYING WIFI + DEVICE =====</arg>
-<doc>Logs the given message to the console.</doc>
-<status status="PASS" start="2026-02-24T12:06:57.039447" elapsed="0.000952"/>
-</kw>
+<test id="s1-t3" name="3. Device Boot Check" line="19">
 <kw name="Run Process" owner="Process">
-<msg time="2026-02-24T12:06:57.042042" level="INFO">Starting process:
-python -c "import iot_cloud_test; iot_cloud_test.main_device_check()"</msg>
-<msg time="2026-02-24T12:06:57.062112" level="INFO">Waiting for process to complete.</msg>
-<msg time="2026-02-24T12:07:02.579001" level="INFO">Process completed.</msg>
-<msg time="2026-02-24T12:07:02.579206" level="INFO">${result} = &lt;result object with rc 0&gt;</msg>
-<var>${result}</var>
-<arg>python</arg>
+<msg time="2026-02-25T12:17:40.607890" level="INFO">Starting process:
+python -c "\"import iot_cloud_test; iot_cloud_test.main_device_check()\""</msg>
+<msg time="2026-02-25T12:17:40.616414" level="INFO">Waiting for process to complete.</msg>
+<msg time="2026-02-25T12:17:40.659875" level="INFO">Process completed.</msg>
+<msg time="2026-02-25T12:17:40.660034" level="INFO">${r} = &lt;result object with rc 0&gt;</msg>
+<var>${r}</var>
+<arg>${PYTHON}</arg>
 <arg>-c</arg>
-<arg>import iot_cloud_test; iot_cloud_test.main_device_check()</arg>
+<arg>"import iot_cloud_test; iot_cloud_test.main_device_check()"</arg>
 <arg>shell=True</arg>
 <doc>Runs a process and waits for it to complete.</doc>
-<status status="PASS" start="2026-02-24T12:06:57.041033" elapsed="5.538204"/>
+<status status="PASS" start="2026-02-25T12:17:40.607565" elapsed="0.052493"/>
 </kw>
 <kw name="Should Be Equal As Integers" owner="BuiltIn">
-<msg time="2026-02-24T12:07:02.580813" level="INFO">Argument types are:
+<msg time="2026-02-25T12:17:40.661091" level="INFO">Argument types are:
 &lt;class 'int'&gt;
 &lt;class 'str'&gt;</msg>
-<arg>${result.rc}</arg>
+<arg>${r.rc}</arg>
 <arg>0</arg>
 <doc>Fails if objects are unequal after converting them to integers.</doc>
-<status status="PASS" start="2026-02-24T12:07:02.579721" elapsed="0.001195"/>
+<status status="PASS" start="2026-02-25T12:17:40.660525" elapsed="0.000615"/>
 </kw>
-<status status="PASS" start="2026-02-24T12:06:57.038417" elapsed="5.542906"/>
+<status status="PASS" start="2026-02-25T12:17:40.607047" elapsed="0.054488"/>
 </test>
-<test id="s1-t4" name="Validate Cloud Temperature" line="20">
-<kw name="Log To Console" owner="BuiltIn">
-<arg>===== VALIDATING CLOUD DATA =====</arg>
-<doc>Logs the given message to the console.</doc>
-<status status="PASS" start="2026-02-24T12:07:02.582529" elapsed="0.000584"/>
-</kw>
+<test id="s1-t4" name="4. Cloud Check" line="23">
 <kw name="Run Process" owner="Process">
-<msg time="2026-02-24T12:07:02.583617" level="INFO">Starting process:
-python -c "import iot_cloud_test; iot_cloud_test.main_cloud_check()"</msg>
-<msg time="2026-02-24T12:07:02.600465" level="INFO">Waiting for process to complete.</msg>
-<msg time="2026-02-24T12:07:04.305303" level="INFO">Process completed.</msg>
-<msg time="2026-02-24T12:07:04.305516" level="INFO">${result} = &lt;result object with rc 0&gt;</msg>
-<var>${result}</var>
-<arg>python</arg>
+<msg time="2026-02-25T12:17:40.663240" level="INFO">Starting process:
+python -c "\"import iot_cloud_test; iot_cloud_test.main_cloud_check()\""</msg>
+<msg time="2026-02-25T12:17:40.671034" level="INFO">Waiting for process to complete.</msg>
+<msg time="2026-02-25T12:17:40.714513" level="INFO">Process completed.</msg>
+<msg time="2026-02-25T12:17:40.714674" level="INFO">${r} = &lt;result object with rc 0&gt;</msg>
+<var>${r}</var>
+<arg>${PYTHON}</arg>
 <arg>-c</arg>
-<arg>import iot_cloud_test; iot_cloud_test.main_cloud_check()</arg>
+<arg>"import iot_cloud_test; iot_cloud_test.main_cloud_check()"</arg>
 <arg>shell=True</arg>
 <doc>Runs a process and waits for it to complete.</doc>
-<status status="PASS" start="2026-02-24T12:07:02.583325" elapsed="1.722223"/>
+<status status="PASS" start="2026-02-25T12:17:40.662908" elapsed="0.051789"/>
 </kw>
 <kw name="Should Be Equal As Integers" owner="BuiltIn">
-<msg time="2026-02-24T12:07:04.306930" level="INFO">Argument types are:
+<msg time="2026-02-25T12:17:40.715622" level="INFO">Argument types are:
 &lt;class 'int'&gt;
 &lt;class 'str'&gt;</msg>
-<arg>${result.rc}</arg>
+<arg>${r.rc}</arg>
 <arg>0</arg>
 <doc>Fails if objects are unequal after converting them to integers.</doc>
-<status status="PASS" start="2026-02-24T12:07:04.305906" elapsed="0.001104"/>
+<status status="PASS" start="2026-02-25T12:17:40.715039" elapsed="0.000636"/>
 </kw>
-<status status="PASS" start="2026-02-24T12:07:02.582054" elapsed="1.725369"/>
+<status status="PASS" start="2026-02-25T12:17:40.662419" elapsed="0.053594"/>
 </test>
-<status status="PASS" start="2026-02-24T12:05:31.649956" elapsed="92.658518"/>
+<test id="s1-t5" name="5. Full Integration Run" line="27">
+<kw name="Run Process" owner="Process">
+<msg time="2026-02-25T12:17:40.717570" level="INFO">Starting process:
+python iot_cloud_test.py</msg>
+<msg time="2026-02-25T12:17:40.726170" level="INFO">Waiting for process to complete.</msg>
+<msg time="2026-02-25T12:17:41.111661" level="INFO">Process completed.</msg>
+<msg time="2026-02-25T12:17:41.111858" level="INFO">${r} = &lt;result object with rc 1&gt;</msg>
+<var>${r}</var>
+<arg>${PYTHON}</arg>
+<arg>iot_cloud_test.py</arg>
+<arg>shell=True</arg>
+<doc>Runs a process and waits for it to complete.</doc>
+<status status="PASS" start="2026-02-25T12:17:40.717284" elapsed="0.394596"/>
+</kw>
+<kw name="Should Be Equal As Integers" owner="BuiltIn">
+<msg time="2026-02-25T12:17:41.112946" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;class 'str'&gt;</msg>
+<msg time="2026-02-25T12:17:41.113056" level="FAIL">1 != 0</msg>
+<arg>${r.rc}</arg>
+<arg>0</arg>
+<doc>Fails if objects are unequal after converting them to integers.</doc>
+<status status="FAIL" start="2026-02-25T12:17:41.112375" elapsed="0.000805">1 != 0</status>
+</kw>
+<status status="FAIL" start="2026-02-25T12:17:40.716875" elapsed="0.396821">1 != 0</status>
+</test>
+<test id="s1-t6" name="6. Repeat Device Boot Check" line="31">
+<kw name="Run Process" owner="Process">
+<msg time="2026-02-25T12:17:41.115618" level="INFO">Starting process:
+python -c "\"import iot_cloud_test; iot_cloud_test.main_device_check()\""</msg>
+<msg time="2026-02-25T12:17:41.119168" level="INFO">Waiting for process to complete.</msg>
+<msg time="2026-02-25T12:17:41.162279" level="INFO">Process completed.</msg>
+<msg time="2026-02-25T12:17:41.162449" level="INFO">${r} = &lt;result object with rc 0&gt;</msg>
+<var>${r}</var>
+<arg>${PYTHON}</arg>
+<arg>-c</arg>
+<arg>"import iot_cloud_test; iot_cloud_test.main_device_check()"</arg>
+<arg>shell=True</arg>
+<doc>Runs a process and waits for it to complete.</doc>
+<status status="PASS" start="2026-02-25T12:17:41.115323" elapsed="0.047151"/>
+</kw>
+<kw name="Should Be Equal As Integers" owner="BuiltIn">
+<msg time="2026-02-25T12:17:41.163347" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${r.rc}</arg>
+<arg>0</arg>
+<doc>Fails if objects are unequal after converting them to integers.</doc>
+<status status="PASS" start="2026-02-25T12:17:41.162799" elapsed="0.000601"/>
+</kw>
+<status status="PASS" start="2026-02-25T12:17:41.114778" elapsed="0.049036"/>
+</test>
+<test id="s1-t7" name="7. Repeat Cloud Check" line="35">
+<kw name="Run Process" owner="Process">
+<msg time="2026-02-25T12:17:41.165424" level="INFO">Starting process:
+python -c "\"import iot_cloud_test; iot_cloud_test.main_cloud_check()\""</msg>
+<msg time="2026-02-25T12:17:41.168718" level="INFO">Waiting for process to complete.</msg>
+<msg time="2026-02-25T12:17:41.210710" level="INFO">Process completed.</msg>
+<msg time="2026-02-25T12:17:41.210922" level="INFO">${r} = &lt;result object with rc 0&gt;</msg>
+<var>${r}</var>
+<arg>${PYTHON}</arg>
+<arg>-c</arg>
+<arg>"import iot_cloud_test; iot_cloud_test.main_cloud_check()"</arg>
+<arg>shell=True</arg>
+<doc>Runs a process and waits for it to complete.</doc>
+<status status="PASS" start="2026-02-25T12:17:41.165095" elapsed="0.045854"/>
+</kw>
+<kw name="Should Be Equal As Integers" owner="BuiltIn">
+<msg time="2026-02-25T12:17:41.212027" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${r.rc}</arg>
+<arg>0</arg>
+<doc>Fails if objects are unequal after converting them to integers.</doc>
+<status status="PASS" start="2026-02-25T12:17:41.211453" elapsed="0.000623"/>
+</kw>
+<status status="PASS" start="2026-02-25T12:17:41.164651" elapsed="0.047829"/>
+</test>
+<test id="s1-t8" name="8. Full System Run Again" line="39">
+<kw name="Run Process" owner="Process">
+<msg time="2026-02-25T12:17:41.214291" level="INFO">Starting process:
+python iot_cloud_test.py</msg>
+<msg time="2026-02-25T12:17:41.217741" level="INFO">Waiting for process to complete.</msg>
+<msg time="2026-02-25T12:17:41.583551" level="INFO">Process completed.</msg>
+<msg time="2026-02-25T12:17:41.583714" level="INFO">${r} = &lt;result object with rc 1&gt;</msg>
+<var>${r}</var>
+<arg>${PYTHON}</arg>
+<arg>iot_cloud_test.py</arg>
+<arg>shell=True</arg>
+<doc>Runs a process and waits for it to complete.</doc>
+<status status="PASS" start="2026-02-25T12:17:41.214005" elapsed="0.369734"/>
+</kw>
+<kw name="Should Be Equal As Integers" owner="BuiltIn">
+<msg time="2026-02-25T12:17:41.584733" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;class 'str'&gt;</msg>
+<msg time="2026-02-25T12:17:41.584823" level="FAIL">1 != 0</msg>
+<arg>${r.rc}</arg>
+<arg>0</arg>
+<doc>Fails if objects are unequal after converting them to integers.</doc>
+<status status="FAIL" start="2026-02-25T12:17:41.584189" elapsed="0.000707">1 != 0</status>
+</kw>
+<status status="FAIL" start="2026-02-25T12:17:41.213471" elapsed="0.371894">1 != 0</status>
+</test>
+<test id="s1-t9" name="9. Device Stability Check" line="43">
+<kw name="Run Process" owner="Process">
+<msg time="2026-02-25T12:17:41.587642" level="INFO">Starting process:
+python -c "\"import iot_cloud_test; iot_cloud_test.main_device_check()\""</msg>
+<msg time="2026-02-25T12:17:41.591498" level="INFO">Waiting for process to complete.</msg>
+<msg time="2026-02-25T12:17:41.635879" level="INFO">Process completed.</msg>
+<msg time="2026-02-25T12:17:41.636045" level="INFO">${r} = &lt;result object with rc 0&gt;</msg>
+<var>${r}</var>
+<arg>${PYTHON}</arg>
+<arg>-c</arg>
+<arg>"import iot_cloud_test; iot_cloud_test.main_device_check()"</arg>
+<arg>shell=True</arg>
+<doc>Runs a process and waits for it to complete.</doc>
+<status status="PASS" start="2026-02-25T12:17:41.587342" elapsed="0.048727"/>
+</kw>
+<kw name="Should Be Equal As Integers" owner="BuiltIn">
+<msg time="2026-02-25T12:17:41.637150" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${r.rc}</arg>
+<arg>0</arg>
+<doc>Fails if objects are unequal after converting them to integers.</doc>
+<status status="PASS" start="2026-02-25T12:17:41.636572" elapsed="0.000630"/>
+</kw>
+<status status="PASS" start="2026-02-25T12:17:41.586812" elapsed="0.050848"/>
+</test>
+<test id="s1-t10" name="10. Final Cloud Validation" line="47">
+<kw name="Run Process" owner="Process">
+<msg time="2026-02-25T12:17:41.639743" level="INFO">Starting process:
+python -c "\"import iot_cloud_test; iot_cloud_test.main_cloud_check()\""</msg>
+<msg time="2026-02-25T12:17:41.643482" level="INFO">Waiting for process to complete.</msg>
+<msg time="2026-02-25T12:17:41.686906" level="INFO">Process completed.</msg>
+<msg time="2026-02-25T12:17:41.687055" level="INFO">${r} = &lt;result object with rc 0&gt;</msg>
+<var>${r}</var>
+<arg>${PYTHON}</arg>
+<arg>-c</arg>
+<arg>"import iot_cloud_test; iot_cloud_test.main_cloud_check()"</arg>
+<arg>shell=True</arg>
+<doc>Runs a process and waits for it to complete.</doc>
+<status status="PASS" start="2026-02-25T12:17:41.639143" elapsed="0.047935"/>
+</kw>
+<kw name="Should Be Equal As Integers" owner="BuiltIn">
+<msg time="2026-02-25T12:17:41.687972" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${r.rc}</arg>
+<arg>0</arg>
+<doc>Fails if objects are unequal after converting them to integers.</doc>
+<status status="PASS" start="2026-02-25T12:17:41.687474" elapsed="0.000544"/>
+</kw>
+<status status="PASS" start="2026-02-25T12:17:41.638581" elapsed="0.049802"/>
+</test>
+<kw name="Log To Console" owner="BuiltIn" type="TEARDOWN">
+<arg>===== TEST SUITE FINISHED =====</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2026-02-25T12:17:41.689621" elapsed="0.000434"/>
+</kw>
+<status status="FAIL" start="2026-02-25T12:17:40.445291" elapsed="1.244847"/>
 </suite>
 <statistics>
 <total>
-<stat pass="4" fail="0" skip="0">All Tests</stat>
+<stat pass="8" fail="2" skip="0">All Tests</stat>
 </total>
 <tag>
 </tag>
 <suite>
-<stat name="Test Device" id="s1" pass="4" fail="0" skip="0">Test Device</stat>
+<stat name="Test Device" id="s1" pass="8" fail="2" skip="0">Test Device</stat>
 </suite>
 </statistics>
 <errors>
