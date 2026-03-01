@@ -19,7 +19,7 @@ LiquidCrystal_I2C lcd(0x27, 16, 2);
 
 BlynkTimer timer;
 
-/************ FUNCTION TO READ TEMP ************/
+/************ SEND TEMPERATURE ************/
 void sendTemperature()
 {
   int sensorValue = analogRead(LM35);
@@ -35,30 +35,36 @@ void sendTemperature()
   lcd.print(temperature);
   lcd.print(" C   ");
 
-  // Structured serial output for automation
   Serial.print("TEMP:");
   Serial.println(temperature);
 }
 
-void checkConnection()
+/************ SEND WIFI RSSI ************/
+void sendWiFiStrength()
 {
   if (WiFi.status() == WL_CONNECTED)
   {
+    int rssi = WiFi.RSSI();
+
+    Blynk.virtualWrite(V1, rssi);
+
+    Serial.print("RSSI:");
+    Serial.println(rssi);
+  }
+}
+
+/************ CONNECTION STATUS ************/
+void checkConnection()
+{
+  if (WiFi.status() == WL_CONNECTED)
     Serial.println("WIFI_CONNECTED");
-  }
   else
-  {
     Serial.println("WIFI_DISCONNECTED");
-  }
 
   if (Blynk.connected())
-  {
     Serial.println("BLYNK_CONNECTED");
-  }
   else
-  {
     Serial.println("BLYNK_DISCONNECTED");
-  }
 }
 
 void setup()
@@ -86,14 +92,13 @@ void setup()
   Blynk.connect();
 
   if (Blynk.connected())
-  {
     Serial.println("BLYNK_CONNECTED");
-  }
 
   lcd.clear();
   lcd.print("Connected!");
 
   timer.setInterval(1000L, sendTemperature);
+  timer.setInterval(3000L, sendWiFiStrength);
   timer.setInterval(5000L, checkConnection);
 }
 
